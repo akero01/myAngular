@@ -1,0 +1,15 @@
+    <div class="col-sm-2 album-main-pictures">
+   <div class="album-main-picture" ng-repeat="album in albums|orderBy:'title'" ng-click="goto(album)" ng-controller="RootController">
+    	<div> 
+    	   <img ng-src="{{album.image}}" class="album-app-pictures-image" title="Click to start {{album.title}} slideshow"> 
+           <label class="album-prime-pictures-label">{{album.title}}</label>
+        </div>
+    </div>
+    </div>
+ 
+    <div class="col-sm-8">
+        <br />
+           <img ng-src={{mainInfo?mainInfo.image:'img/blank.png'}} class="start-image center-block"/>
+        <br />
+     </div>
+     

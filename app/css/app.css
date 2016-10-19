@@ -1,0 +1,299 @@
+/* app css stylesheet */
+
+html{
+    height:100%;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    min-height: 100%;
+    font-size: 13px;
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+}
+
+h1 {
+	min-height: 39px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers - start*/
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+/* styles for validation helpers - end */
+
+/*styles for nav bars - start*/
+.navbar-default.top-navbar {
+    background-color: #4eaded;
+    border-color: #4eaded;
+}
+
+.navbar-default.top-navbar h1 {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.navbar-default .second-top-nav{
+    background-color: #0088dc !important;
+    height:43px;
+}
+.navbar-default .second-top-nav a {
+    color: white !important;
+}
+
+.top-navbar-right.navbar-nav.navbar-right:last-child {
+    color: white;
+    margin-right: 0px;
+    margin-top: 25px;
+}
+
+.nav-button.btn {
+	margin-top: 5px;
+	margin-left: 3px;
+}
+
+.navbar-title {
+	color: white;
+	font-size: 16px;
+	line-height: 1.0;
+	display: inline-flex;
+	padding-left: 15px;
+}
+
+.navbar-description {
+	color: white;
+	font-size: 16px;
+	line-height: 1.0;
+	display: inline-flex;
+	font-style: italic;
+}
+
+.navbar-top-home {
+    margin-top: 12px;
+    margin-right: 12px;
+}
+/*styles for nav bars - end*/
+
+/*styles for album show */
+.container.app-container{
+    width:100%;
+    max-width:100%;
+}
+.slide-display-div{
+    text-align:center;
+    padding:10px;
+}
+.slide-display-div .img-responsive{
+    margin: 25px auto;
+    max-width:500px;
+    max-height:300px;
+    cursor:pointer;
+}
+.slide-display-div .time-progress{
+    margin-top:40px;
+}
+
+.slide-app-container{
+    padding-top:50px;
+}
+
+.progress-placeholder {
+	height: 80px;
+}
+
+/*styles for album show - end*/
+
+/*Styles for start (main) page */
+.text-center {
+    color:#4eaded;
+}
+
+.start-image {
+	width: 70%;
+	margin-top: 40px;
+	max-height: 450px;
+}
+
+.album-main-pictures {
+	margin-top: 55px;
+}
+
+.album-main-picture {
+	text-align: center;
+	display: block;
+	margin: auto;
+	padding-bottom:15px;
+	float: left;
+}
+
+.album-prime-pictures-label {
+	font-weight: 500;
+	margin-left: 10px;
+	vertical-align: top;
+}
+
+/*Styles for start (main) page - end*/
+
+/* styles for picture popup in editor */
+
+.picture-popup .ngdialog-content {
+	width:600px !important;
+	padding-left: 40px !important;
+}
+
+.picture-popup .row {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+.picture-popup .row-alt {
+	width: 250px !important;
+}
+
+.picture-popup-image {
+	max-width:250px; 
+	max-height:250px;
+	padding-bottom: 5px;
+}
+
+/* end styles for picture popup in editor */
+
+/* styles for album editor */
+
+.album-button{
+    margin-bottom:15px;
+    margin-top: 10px;
+}
+
+.album-editor-picture {
+	padding-top: 10px;
+	max-width: 100px;
+	max-height: 100px;
+}
+
+.album-editor-pictures-container {
+	margin-left: 50px !important;
+}
+
+.album-editor-pictures-label {
+	font-weight: 400 !important;
+	vertical-align: top;
+}
+
+.album-editor-pictures {
+	padding-bottom: 5px;
+	max-width: 60px;
+	max-height: 60px;
+	cursor: move;
+}
+
+.album-editor-pictures-glyph-pencil {
+	padding-right: 5px;
+	color: blue;
+	cursor: pointer;
+}
+
+.album-editor-pictures-glyph-trash {
+	color: #a94442;
+	cursor: pointer;
+}
+
+.album-app-container {
+    padding-top: 40px;
+    padding-left: 50px;
+}
+
+.album-app-duration {
+    width: 70px;
+}
+
+.mainInfo-data {
+    padding-top: 70px;
+    padding-left: 50px;
+}
+
+
+.album-app-container-albums{
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.album-app-pictures-glyph-pencil {
+	padding-right: 5px;
+	padding-left: 15px;
+	color: blue;
+	cursor: pointer;
+}
+
+.album-app-pictures-glyph-trash {
+	color: #a94442;
+	cursor: pointer;
+}
+
+.album-app-pictures-image {
+    max-width:70px;
+    max-height:70px;
+	cursor: pointer;
+}
+
+.album-app-pictures-label {
+	font-weight: 400 !important;
+	margin-left: 15px;
+}
+
+.fileImage {
+	display: flex;
+}
+
+.albumFileImage {
+    margin-right: 42px !important;
+}
+
+.popupFileUpload {
+    margin-right: 0px !important;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin-right: 23px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+/* end styles for album editor */
+

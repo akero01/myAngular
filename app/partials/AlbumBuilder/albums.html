@@ -1,0 +1,40 @@
+
+    <form class="row" name="formAlbums" novalidate>
+        <div id="mainInfo-data" class="col-sm-3 mainInfo-data">
+            <div class="form-group row">
+                <label for="mainInfo-title">Album Collection Title:</label>
+                <input type="text" name="title" id="mainInfo-title" class="form-control" ng-model="mainInfo.title" ng-change="mainInfoChange()" ng-minlength="1" ng-maxlength="20" required>
+            </div>
+            <div class="form-group row">
+                <label for="mainInfo-image">Album Collection Image:</label>
+                <div class="fileImage">
+                   <input type="text" name="image" id="mainInfo-image" class="form-control" ng-model="mainInfo.image" ng-change="mainInfoChange()"></input>
+                   <div class="fileUpload btn btn-primary">
+                      <span class="glyphicon glyphicon-search" title="Image Search"> </span>
+                      <input type="file" class="upload" title="Image Search" accept="img/*" onchange="angular.element(this).scope().mainInfoChange(this)"/>
+                  </div>
+                </div>
+    	        <img ng-src="{{mainInfo.image? mainInfo.image : '/img/blank.png'}}" class="album-editor-picture">
+            </div>
+            <div class="row">
+                <div>
+                    <button class="btn btn-primary pull-right" title="Save album collection title and image" ng-disabled="!mainInfo.dirty" ng-click="setMainInfo()">Save</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="album-list-data" class="col-sm-3">
+          <div id="album-list" class="album-app-container">
+            <h2>Albums</h2>
+            <div ng-repeat="album in albums|orderBy:'title'">
+              <div class="album-app-container-albums">
+    	        <div><img ng-src="{{album.image}}" class="album-app-pictures-image"></div>
+                <label class="pull-right album-app-pictures-label">{{album.title}}</label>
+                <div class="pull-right" ng-click="goto(album)"><span class="glyphicon glyphicon-pencil album-app-pictures-glyph-pencil" title="Edit Album"></span></div>        
+                <div class="pull-right"><span class="glyphicon glyphicon-trash album-app-pictures-glyph-trash" confirm-click="deleteAnAlbum(album)" confirmation="Are you sure you want to delete album {{album.title}}?" title="Delete Album"></span></div>
+              </div>
+             </div>
+          </div>
+        </div>
+        
+    </form>

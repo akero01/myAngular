@@ -1,0 +1,68 @@
+<div id="album-container" class="album-app-container">
+    <div class="row">
+        <h2 class="col-sm-8 col-sm-offset-1">{{album.title||'Album Title'}} {{formAlbum.$dirty?'*':''}}</h2>
+    </div>
+    
+    <form class="row" name="formAlbum" novalidate>
+        <div id="album-data" class="col-sm-3">
+            <div class="form-group row" ng-class="{'has-error':formAlbum.albumName.$invalid}">
+                <label for="album-name">Name:</label>
+                <input type="text" name="albumName" class="form-control" id="album-name" ng-change="itChanged(formAlbum.albumName)" ng-disabled="albumUpdate === true" placeholder="Enter album name. Must be unique." ng-model="album.name"  required>
+                <label ng-show="hasError(formAlbum.albumName,formAlbum.albumName.$error.required)" class="text-danger">Album name is required.</label>
+                <label ng-show="hasError(formAlbum.albumName,formAlbum.albumName.$error.unique)" class="text-danger">Album name must be unique.</label>
+            </div>           
+            <div class="form-group row" ng-class="{'has-error':formAlbum.title.$invalid}">
+                <label for="album-title">Title:</label>
+                <input type="text" name="title" class="form-control" id="album-title" placeholder="Enter album title." ng-model="album.title" required>
+                <label ng-show="hasError(formAlbum.title,formAlbum.title.$error.required)" class="text-danger">Album title is required.</label>
+            </div>
+            <div class="form-group row">
+                <label for="album-image">Image:</label>                
+                <div class="fileImage">
+                   <input type="text" name="image" class="form-control" id="album-image" placeholder="Enter album image." ng-model="album.image"></input>
+                   <div class="fileUpload btn btn-primary albumFileImage">
+                      <span class="glyphicon glyphicon-search" title="Image Search"> </span>
+                      <input type="file" class="upload" title="Image Search" accept="img/*" onchange="angular.element(this).scope().filePictureChange(this)"/>
+                  </div>
+                </div>
+    	        <img ng-src="{{album.image? album.image : '/img/blank.png'}}" class="album-editor-picture">
+            </div>
+            
+            <div class="form-group row">
+                <label for="album-description">Description:</label>
+                <textarea name="description" class="form-control" id="album-description" placeholder="Enter album description." ng-model="album.description"></textarea>
+            </div>      
+            <div class="form-group row">
+                <label for="slide-duration">Slide Timer Duration (0 = timer off):</label>
+                <input type="number" class="form-control album-app-duration" ng-model="album.duration" min="0" max="60" step="1" value="0">                          
+            </div>  
+            
+            <div class="row">
+                <div>
+                    <button class="btn pull-right" ng-class="{'btn-default':formAlbum.$valid,'btn-warning':!formAlbum.$valid}" ng-disabled="!formAlbum.$dirty" ng-click="save()" 
+                        popover="{{formAlbum.$invalid ? 'The form has errors.' : null}}" popover-trigger="mouseenter">Save</button>
+                    <button class="btn btn-primary pull-right" ng-disabled="!formAlbum.$dirty" ng-click="reset()">Reset</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id="album-pictures" class="col-sm-3 album-editor-pictures-container">
+             <div class="row">
+                 <button class="btn btn-primary pull-left album-button" ng-click="addPicture()" title="Add a picture to this album">Add Picture</button>
+             </div>
+             <label>Pictures:</label>
+             <div sv-root sv-part="album.pictures" sv-on-sort="onPictureSort()">
+                 <div ng-repeat="picture in album.pictures" class="workout tile" sv-element>
+                   <div>
+    	             <img draggable="false" ng-src="{{picture.details.image}}" class="album-editor-pictures" title="Drag and drop to change order">
+                     <label class="album-editor-pictures-label">{{picture.details.title}}</label>
+                     <div class="pull-right" confirm-click="removePicture(picture)" confirmation="Are you sure you want to delete this picture?"><span class="glyphicon glyphicon-trash album-editor-pictures-glyph-trash" title="Delete Picture"></span></div>
+                     <div class="pull-right" ng-click="editPicture(picture)"><span class="glyphicon glyphicon-pencil album-editor-pictures-glyph-pencil" title="Edit Picture"></span></div>
+                   </div>  
+                </div>
+             </div>
+        </div>
+               
+    </form>
+</div>
